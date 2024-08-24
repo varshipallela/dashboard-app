@@ -1,7 +1,7 @@
 export interface Widget {
-  id: number;
-  name: string;
-  content: string;
+  id: string;
+  title: string;
+  data: Record<string, number>;
 }
 
 export interface Category {

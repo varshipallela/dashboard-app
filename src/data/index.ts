@@ -1,18 +1,46 @@
-export const data = {
+import { DashboardData } from "src/types/dashboard.t";
+
+export const data: DashboardData = {
   categories: [
     {
       id: 1,
       name: "CSPM Executive Dashboard",
       widgets: [
         {
-          id: 1,
-          name: "Widget 1",
-          content: "This is widget 1 content.",
+          id: "cloud-accounts",
+          title: "Cloud Accounts",
+          data: {
+            connected: 5,
+            "not connected": 2,
+            pending: 1,
+          },
         },
         {
-          id: 2,
-          name: "Widget 2",
-          content: "This is widget 2 content.",
+          id: "on-premise-servers",
+          title: "On-Premise Servers",
+          data: {
+            active: 10,
+            inactive: 3,
+            maintenance: 2,
+          },
+        },
+        {
+          id: "network-devices",
+          title: "Network Devices",
+          data: {
+            online: 8,
+            offline: 4,
+            error: 1,
+          },
+        },
+        {
+          id: "databases",
+          title: "Databases",
+          data: {
+            operational: 7,
+            backup: 5,
+            archived: 2,
+          },
         },
       ],
     },
@@ -21,9 +49,41 @@ export const data = {
       name: "Security Dashboard",
       widgets: [
         {
-          id: 3,
-          name: "Widget 3",
-          content: "This is widget 3 content.",
+          id: "vulnerabilities",
+          title: "Vulnerabilities",
+          data: {
+            critical: 4,
+            high: 8,
+            medium: 15,
+            low: 20,
+          },
+        },
+        {
+          id: "threats",
+          title: "Threats",
+          data: {
+            active: 5,
+            mitigated: 10,
+            resolved: 7,
+          },
+        },
+        {
+          id: "incidents",
+          title: "Incidents",
+          data: {
+            open: 3,
+            closed: 9,
+            inProgress: 2,
+          },
+        },
+        {
+          id: "compliance",
+          title: "Compliance",
+          data: {
+            passed: 12,
+            failed: 3,
+            notAssessed: 5,
+          },
         },
       ],
     },
