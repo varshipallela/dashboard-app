@@ -3,11 +3,13 @@ export function Card({
   title,
   subTitle,
   isGraph,
+  onClick,
 }: {
   children: React.ReactNode;
   title?: string;
   subTitle?: string;
   isGraph?: boolean;
+  onClick?: () => void;
 }) {
   function renderChildren() {
     if (!isGraph) return children;
@@ -34,7 +36,9 @@ export function Card({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        cursor: "pointer",
       }}
+      onClick={onClick}
     >
       {renderChildren()}
     </div>

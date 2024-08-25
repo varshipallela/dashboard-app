@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react";
-import { DashboardData, Category, Widget } from "../src/types/dashboard.t";
 import { useDashboardStore } from "src/store/dashboardStore";
-import { DoughnutChart } from "src/components/DoughnutChart";
-interface DashboardProps {
-  initialData: DashboardData;
-}
+import { Widgets } from "src/components/Widgets";
 
-const Dashboard: React.FC<DashboardProps> = ({ initialData }) => {
-  const [data, setData] = useState<DashboardData>(initialData);
-  const { categories, setCategories } = useDashboardStore();
+const Dashboard = () => {
+  const { categories, addWidget, updateWidget, removeWidget } =
+    useDashboardStore();
 
   return (
     <div>
-      <DoughnutChart widgets={categories[0].widgets} />
-      <DoughnutChart widgets={categories[1].widgets} />
+      {categories?.map((category) => (
+        <Widgets
+          widgets={category.widgets}
+          onAddWidget={(widget) => addWidget(category.id, widget)}
+          key={category.id}
+          onUpdateWidget={(widget) =>
+            updateWidget(category.id, widget.id, widget)
+          }
+          removeWidget={(widgetId) => removeWidget(category.id, widgetId)}
+        />
+      ))}
     </div>
   );
 };
