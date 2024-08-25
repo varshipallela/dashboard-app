@@ -49,6 +49,8 @@ export const Dialog = ({ onOpenChange, children, ...props }: DialogProps) => {
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1000,
+    opacity: open ? 1 : 0,
+    transition: "opacity 0.3s ease",
   };
 
   const contentStyle: CSSProperties = {
@@ -58,6 +60,10 @@ export const Dialog = ({ onOpenChange, children, ...props }: DialogProps) => {
     position: "relative",
     maxWidth: "500px",
     width: "100%",
+    transform: open ? "scale(1)" : "scale(0.9)",
+    opacity: open ? 1 : 0,
+    transition: "opacity 0.3s ease, transform 0.3s ease",
+    animation: open ? "fadeInScale 0.3s ease forwards" : "",
   };
 
   const renderTrigger = (): ReactNode => {
