@@ -28,12 +28,10 @@ export const Widgets = ({
 
   const handleUpdateWidget = (widget: WidgetType) => {
     onUpdateWidget(widget);
-    setOpen(false);
   };
 
   const handleRemoveWidget = (widgetId: string) => {
     removeWidget(widgetId);
-    setOpen(false);
   };
 
   return (
@@ -55,7 +53,7 @@ export const Widgets = ({
         />
       ))}
       <Card>
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
           <Dialog.Trigger>
             <button
               style={{

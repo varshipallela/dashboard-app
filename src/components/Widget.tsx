@@ -19,6 +19,17 @@ export function Widget({
   onUpdateWidget,
 }: WidgetProps) {
   const [open, setOpen] = useState(false);
+
+  function handleUpdateWidget(widget: WidgetType) {
+    onUpdateWidget(widget);
+    setOpen(false);
+  }
+
+  function handleRemoveWidget() {
+    onRemoveWidget(widget.id);
+    setOpen(false);
+  }
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <Dialog.Trigger>
@@ -29,8 +40,8 @@ export function Widget({
       <Dialog.Content>
         <WidgetForm
           widget={widget}
-          onSave={onUpdateWidget}
-          onRemove={() => onRemoveWidget(widget.id)}
+          onSave={handleUpdateWidget}
+          onRemove={handleRemoveWidget}
         />
       </Dialog.Content>
     </Dialog>
