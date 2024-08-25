@@ -206,7 +206,7 @@ export const useDashboardStore = create<DashboardStore>((set) => ({
           ? {
               ...category,
               widgets: category.widgets.map((_widget) =>
-                widget.id === widgetId ? widget : _widget
+                _widget.id === widgetId ? widget : _widget
               ),
             }
           : category
