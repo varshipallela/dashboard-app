@@ -1,3 +1,5 @@
+import { ChartType } from "chart.js";
+
 export interface Widget {
   id: string;
   title: string;
@@ -7,6 +9,7 @@ export interface Widget {
 export interface Category {
   id: number;
   name: string;
+  type: ChartType;
   widgets: Widget[];
 }
 

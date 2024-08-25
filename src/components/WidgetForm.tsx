@@ -126,7 +126,7 @@ export function WidgetForm({ onSave, widget, onRemove }: WidgetFormProps) {
         style={{
           display: "flex",
           justifyContent: "space-around",
-          marginBottom: "20px",
+          marginTop: "40px",
           gap: "10px",
         }}
       >

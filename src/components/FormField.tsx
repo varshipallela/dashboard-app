@@ -64,7 +64,7 @@ export function FormField({
           cursor: "pointer",
         }}
       >
-        Remove
+        X
       </button>
     </div>
   );

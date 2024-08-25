@@ -4,14 +4,17 @@ import { Card } from "./Card";
 import { Dialog } from "./Dialog";
 import { WidgetForm } from "./WidgetForm";
 import { Widget } from "./Widget";
+import { ChartType } from "chart.js";
 
 export const Widgets = ({
+  type,
   widgets,
   onAddWidget,
   onUpdateWidget,
   removeWidget,
 }: {
   widgets: WidgetType[];
+  type: ChartType;
   onAddWidget: (newWidget: WidgetType) => void;
   onUpdateWidget: (updatedWidget: WidgetType) => void;
   removeWidget: (widgetId: string) => void;
@@ -45,6 +48,7 @@ export const Widgets = ({
       {widgets?.map((widget, i) => (
         <Widget
           key={i}
+          type={type}
           widget={widget}
           onUpdateWidget={handleUpdateWidget}
           onRemoveWidget={handleRemoveWidget}

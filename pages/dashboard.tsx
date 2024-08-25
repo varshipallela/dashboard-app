@@ -34,6 +34,7 @@ const Dashboard = () => {
             updateWidget(category.id, widget.id, widget)
           }
           removeWidget={(widgetId) => removeWidget(category.id, widgetId)}
+          type={category.type}
         />
       ))}
     </div>

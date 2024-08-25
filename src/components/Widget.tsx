@@ -4,13 +4,16 @@ import { useState } from "react";
 import { Card } from "./Card";
 import { WidgetForm } from "./WidgetForm";
 import { Chart } from "./Chart";
+import { ChartType } from "chart.js";
 
 export interface WidgetProps {
   widget: WidgetType;
+  type: ChartType;
   onUpdateWidget: (widget: WidgetType) => void;
   onRemoveWidget: (widgetId: string) => void;
 }
 export function Widget({
+  type,
   widget,
   onRemoveWidget,
   onUpdateWidget,
@@ -20,7 +23,7 @@ export function Widget({
     <Dialog open={open} onOpenChange={setOpen}>
       <Dialog.Trigger>
         <Card title={widget.title} isGraph>
-          <Chart widget={widget} />
+          <Chart widget={widget} type={type} />
         </Card>
       </Dialog.Trigger>
       <Dialog.Content>
