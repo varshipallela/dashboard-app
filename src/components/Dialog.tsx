@@ -66,7 +66,6 @@ export const Dialog = ({ onOpenChange, children, ...props }: DialogProps) => {
         if (typeof child.type !== "string" && child.type === Dialog.Trigger) {
           return React.cloneElement(child as ReactElement<any>, {
             onClick: () => handleOpenChange(true),
-            style: { ...(child.props.style || {}), cursor: "pointer" },
           });
         }
       }
@@ -83,7 +82,6 @@ export const Dialog = ({ onOpenChange, children, ...props }: DialogProps) => {
         if (typeof child.type !== "string" && child.type === Dialog.Close) {
           return React.cloneElement(child as ReactElement<any>, {
             onClick: () => handleOpenChange(false),
-            style: { ...(child.props.style || {}), cursor: "pointer" },
           });
         }
       }
@@ -108,7 +106,6 @@ export const Dialog = ({ onOpenChange, children, ...props }: DialogProps) => {
 const DialogClose = ({
   children,
   onClick,
-  style,
 }: DialogCloseProps & { style?: CSSProperties }) => {
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) onClick(e);
@@ -116,14 +113,12 @@ const DialogClose = ({
 
   return React.cloneElement(children as ReactElement<any>, {
     onClick: handleClick,
-    style: { cursor: "pointer", ...style },
   });
 };
 
 const DialogTrigger = ({
   children,
   onClick,
-  style,
 }: DialogCloseProps & { style?: CSSProperties }) => {
   const handleClick = (e: React.MouseEvent) => {
     if (onClick) onClick(e);
@@ -131,7 +126,6 @@ const DialogTrigger = ({
 
   return React.cloneElement(children as ReactElement<any>, {
     onClick: handleClick,
-    style: { cursor: "pointer", ...style },
   });
 };
 

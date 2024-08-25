@@ -33,7 +33,7 @@ export function Widget({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <Dialog.Trigger>
-        <Card title={widget.title} isGraph>
+        <Card title={widget.title} isGraph cursor="pointer">
           <Chart widget={widget} type={type} />
         </Card>
       </Dialog.Trigger>

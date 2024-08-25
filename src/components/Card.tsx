@@ -1,15 +1,18 @@
+import { CSSProperties } from "react";
+
 export function Card({
   children,
   title,
-  subTitle,
   isGraph,
   onClick,
+  cursor,
 }: {
   children: React.ReactNode;
   title?: string;
   subTitle?: string;
   isGraph?: boolean;
   onClick?: () => void;
+  cursor?: CSSProperties["cursor"];
 }) {
   function renderChildren() {
     if (!isGraph) return children;
@@ -36,7 +39,7 @@ export function Card({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        cursor: "pointer",
+        cursor,
       }}
       onClick={onClick}
     >

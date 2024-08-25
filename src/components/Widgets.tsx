@@ -57,8 +57,12 @@ export const Widgets = ({
           <Dialog.Trigger>
             <button
               style={{
+                padding: "5px 8px",
+                backgroundColor: "rgba(128, 128, 128, 0.8)",
+                color: "#fff",
+                border: "none",
+                borderRadius: "6px",
                 cursor: "pointer",
-                padding: "10px",
               }}
             >
               Add Widget
