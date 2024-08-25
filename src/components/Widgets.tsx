@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Widget as WidgetType } from "src/types/dashboard.t";
 import { Card } from "./Card";
 import { Dialog } from "./Dialog";
@@ -59,13 +59,8 @@ export const Widgets = ({
           <Dialog.Trigger>
             <button
               style={{
-                padding: "10px 20px",
-                fontSize: "16px",
-                borderRadius: "5px",
-                backgroundColor: "#007bff",
-                color: "#fff",
-                border: "none",
                 cursor: "pointer",
+                padding: "10px",
               }}
             >
               Add Widget

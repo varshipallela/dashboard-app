@@ -24,7 +24,7 @@ const Dashboard = () => {
   return (
     <div
       style={{
-        gap: "20px",
+        gap: "10px",
         display: "flex",
         flexDirection: "column",
         padding: "20px",
@@ -32,6 +32,7 @@ const Dashboard = () => {
     >
       <input
         value={searchText}
+        placeholder="search"
         onChange={(e) => setSearchText(e.target.value)}
         style={{
           alignSelf: "flex-end",
