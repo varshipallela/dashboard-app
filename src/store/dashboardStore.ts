@@ -54,8 +54,95 @@ export const data: DashboardData = {
         },
       ],
     },
+
     {
       id: 2,
+      name: "Operations Dashboard",
+      type: "bar",
+      widgets: [
+        {
+          id: "deployments",
+          title: "Deployments",
+          data: {
+            successful: 15,
+            failed: 2,
+            pending: 3,
+          },
+        },
+        {
+          id: "service-uptime",
+          title: "Service Uptime",
+          data: {
+            "last 24 hours": 23,
+            "last 7 days": 160,
+            "last 30 days": 700,
+          },
+        },
+        {
+          id: "support-tickets",
+          title: "Support Tickets",
+          data: {
+            open: 6,
+            resolved: 18,
+            inProgress: 4,
+          },
+        },
+        {
+          id: "system-alerts",
+          title: "System Alerts",
+          data: {
+            critical: 2,
+            warning: 7,
+            informational: 10,
+          },
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Compliance Dashboard",
+      type: "line",
+      widgets: [
+        {
+          id: "audit-reports",
+          title: "Audit Reports",
+          data: {
+            passed: 5,
+            failed: 2,
+            pending: 1,
+          },
+        },
+        {
+          id: "policy-adherence",
+          title: "Policy Adherence",
+          data: {
+            compliant: 9,
+            "non-compliant": 3,
+            exempt: 2,
+          },
+        },
+        {
+          id: "training-status",
+          title: "Training Status",
+          data: {
+            completed: 20,
+            inProgress: 5,
+            notStarted: 10,
+          },
+        },
+        {
+          id: "data-retention",
+          title: "Data Retention",
+          data: {
+            retained: 1000,
+            purged: 200,
+            archived: 300,
+          },
+        },
+      ],
+    },
+    {
+      id: 4,
       name: "Security Dashboard",
       type: "pie",
       widgets: [

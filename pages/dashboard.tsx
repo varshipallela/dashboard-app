@@ -1,9 +1,25 @@
 import { useDashboardStore } from "src/store/dashboardStore";
 import { Widgets } from "src/components/Widgets";
+import { useState, useEffect } from "react";
+import { Category } from "src/types/dashboard.t";
 
 const Dashboard = () => {
   const { categories, addWidget, updateWidget, removeWidget } =
     useDashboardStore();
+  const [searchText, setSearchText] = useState("");
+  const [filterCategories, setFilterCategories] =
+    useState<Category[]>(categories);
+
+  useEffect(() => {
+    setFilterCategories(
+      categories.map((category) => ({
+        ...category,
+        widgets: category.widgets.filter((widget) =>
+          widget.title.toLowerCase().includes(searchText.toLowerCase())
+        ),
+      }))
+    );
+  }, [searchText, categories]);
 
   return (
     <div
@@ -15,6 +31,8 @@ const Dashboard = () => {
       }}
     >
       <input
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
         style={{
           alignSelf: "flex-end",
           width: "300px",
@@ -25,17 +43,19 @@ const Dashboard = () => {
           borderWidth: "1px",
         }}
       />
-      {categories?.map((category) => (
-        <Widgets
-          widgets={category.widgets}
-          onAddWidget={(widget) => addWidget(category.id, widget)}
-          key={category.id}
-          onUpdateWidget={(widget) =>
-            updateWidget(category.id, widget.id, widget)
-          }
-          removeWidget={(widgetId) => removeWidget(category.id, widgetId)}
-          type={category.type}
-        />
+      {filterCategories?.map((category) => (
+        <div key={category.name}>
+          <h2>{category.name}</h2>
+          <Widgets
+            widgets={category.widgets}
+            onAddWidget={(widget) => addWidget(category.id, widget)}
+            onUpdateWidget={(widget) =>
+              updateWidget(category.id, widget.id, widget)
+            }
+            removeWidget={(widgetId) => removeWidget(category.id, widgetId)}
+            type={category.type}
+          />
+        </div>
       ))}
     </div>
   );

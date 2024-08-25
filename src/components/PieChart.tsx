@@ -5,7 +5,7 @@ import { Widget } from "src/types/dashboard.t";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function getRandomColor() {
+export function getRandomColor() {
   const letters = "0123456789ABCDEF";
   let color = "#";
   for (let i = 0; i < 6; i++) {
@@ -14,7 +14,7 @@ function getRandomColor() {
   return color;
 }
 
-function getRandomColors(count: number) {
+export function getRandomColors(count: number) {
   return Array.from({ length: count }, () => getRandomColor());
 }
 
