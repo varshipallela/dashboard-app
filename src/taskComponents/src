@@ -1,0 +1,73 @@
+/* src/App.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    transition: background 0.5s;
+  }
+  
+  .header {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background: #f4f4f4;
+    transition: width 0.3s;
+  }
+  
+  .sidebar.open {
+    width: 200px;
+  }
+  
+  .sidebar button {
+    margin: 10px;
+  }
+  
+  .data-display {
+    padding: 20px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .close {
+    cursor: pointer;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  /* Light and Dark Theme */
+  .light {
+    background: white;
+    color: black;
+  }
+  
+  .dark {
+    background: black;
+    color: white;
+  }
+  
